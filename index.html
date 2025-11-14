@@ -3,9 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script defer src="app.js"></script>
     <title>Concentration Memory Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="js/app.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h1 class="game-title">Memory Game</h1>
+    <h2 class="game-instructions">
+      Click on the squares to find all 6 matches.
+    </h2>
+    <h3 class="game-tries">You have 9 tries to find every match!</h3>
+    <section class="game-state">
+      <h4 class="tries-left">Tries left:</h4>
+      <h4 class="pairs-found">Pairs found:</h4>
+    </section>
+    <section class="game-board">
+      <div class="card hidden" id="1"></div>
+      <div class="card hidden" id="2"></div>
+      <div class="card hidden" id="3"></div>
+      <div class="card hidden" id="4"></div>
+      <div class="card hidden" id="5"></div>
+      <div class="card hidden" id="6"></div>
+      <div class="card hidden" id="7"></div>
+      <div class="card hidden" id="8"></div>
+      <div class="card hidden" id="9"></div>
+      <div class="card hidden" id="10"></div>
+      <div class="card hidden" id="11"></div>
+      <div class="card hidden" id="12"></div>
+    </section>
+    <section class="game-reset">
+      <!-- hide reset button if I can without impacting the cards hidden status -->
+      <button class="reset-btn">Play Again!</button>
+    </section>
+  </body>
 </html>
