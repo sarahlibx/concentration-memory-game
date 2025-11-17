@@ -16,12 +16,12 @@
   <body>
     <h1 class="game-title">MEMORY GAME</h1>
     <h2 class="game-instructions">
-      Click on the squares to find all 6 matches.
+      Click on each square to find all 6 matches.
     </h2>
     <h3 class="game-tries">You have 9 tries to find every match!</h3>
     <section class="game-state">
-      <h4 class="tries-left">Tries left:</h4>
-      <h4 class="pairs-found">Pairs found:</h4>
+      <h3 class="tries-left">Tries left: <span id="tries-num">9</span></h3>
+      <h3 class="pairs-found">Pairs found: <span id="pairs-num">0</span></h3>
     </section>
     <section class="game-board">
       <div class="card hidden" id="1">&#127827;</div>
@@ -41,5 +41,6 @@
       <!-- hide reset button if I can without impacting the cards hidden status -->
       <button class="reset-btn">Play Again!</button>
     </section>
+    <footer class="footer">Made with love by Sarah &#128420;</footer>
   </body>
 </html>

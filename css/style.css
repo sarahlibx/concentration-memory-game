@@ -26,13 +26,17 @@ h1, h2, h3 {
     margin: 10px 0;
 }
 
+.game-title {
+  margin-top: 40px;
+}
+
 .game-state {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 60px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .game-board {
@@ -47,7 +51,7 @@ h1, h2, h3 {
 }
 
 .card {
-    background-color: aquamarine;
+    background-color: rgb(132, 229, 197);
     width: 200px;
     margin-bottom: 20px;
     height: 200px;
@@ -56,4 +60,34 @@ h1, h2, h3 {
     justify-content: center;
     align-items: center;
     font-size: 5em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  cursor: grab;
+  transform: scale(1.10);
+}
+
+.hidden {
+  color: transparent;
+}
+
+.reset-btn {
+  font-family: "Momo Trust Display", sans-serif;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+  padding: 1em;
+  border-radius: 40px;
+  border: none;
+  background-color: rgb(118, 234, 118);
+}
+
+.reset-btn:hover {
+  box-shadow: 2px 2px 5px rgba(0 0 0 0.3);
+  transform: scale(1.10);
+}
+
+footer {
+  margin-bottom: 40px;
 }
