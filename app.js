@@ -1,10 +1,5 @@
 /*-------------- Constants -------------*/
 
-// Const: cardValues — set values — ensure pairs (10 cards, 5 pairs)
-// Const: maxAttempts — 9 attempts to get all 6 pairs
-// Let: unflippedCards — empty array to store current unflipped cards
-// Let: flippedCards — empty array to store current flipped cards
-
 const cardValues = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#129817;', '&#129381;', '&#127825;', '&#127819;', '&#129373;', '&#129381;', '&#127827;', '&#127817;'];
 const totalPairs = 6;
 const matchedCardSound = new Audio('../assets/matchwin.wav');
@@ -12,16 +7,15 @@ const wonGameSound = new Audio('../assets/gamewin.ogg');
 
 /*---------- Variables (state) ---------*/
 let firstCard; // first card flip
-let secondCard; // second card flip -- incremement or decremement tries counter (state of game)
+let secondCard; // second card flip -- incremement or decremement tries counter
 let boardLocked = false;
-let matchedCards = 0; // matching cards -- disable event listeners
+let matchedCards = 0;
 let triesLeft = 9;
 
 // not sure if I need these yet due to my gameStatusCounter();
-let unflippedCards = [];
-let flippedCards = [];
-
-let gameStatus; // win or lose
+// let unflippedCards = [];
+// let flippedCards = [];
+// let gameStatus; // win or lose
 
 /*----- Cached Element References  -----*/
 
@@ -31,15 +25,11 @@ const matchedCardsEl = document.querySelector('#pairs-num');
 const gameRulesEL = document.querySelector('.game-rules');
 const hiddenBtnEl = document.querySelector('.hidden-btn');
 const resetBtnEl = document.querySelector('.reset-btn');
-// add match & won sounds cached elements here
-// const matchedCardEl = document.querySelector('');
-// const wonGameEl = document.querySelector('');
 
 /*-------------- Functions -------------*/
-// render function
-const render = () => {
-
-}
+// render function -- don't need it?
+// const render = () => {
+// }
 
 // card flip function
 const handleCardClick = (card) => {
@@ -113,8 +103,35 @@ const gameStatusCounter = (isMatch) => {
    }
 }
 
+// shuffle cards
+
+const shuffleCards = () => {
+    for (let i = cardValues.length -1; 1 >0; i--) {
+        const x = Math.floor(Math.random() * (i + 1));
+        [cardValues[i], cardValues[x]] = [cardValues[x], cardValues[i]];
+    }
+    return cardValues;
+}
+
+// reset game
+// const resetGame = () => {
+//     matchedCards = 0;
+//     triesLeft = 9;
+//     firstCard = null;
+//     secondCard = null;
+//     boardLocked = false;
+
+//     matchedCardsEl.textContent = matchedCards;
+//     choicesLeftEl.textContent = triesLeft;
+
+//     cardsEl.forEach(card => {
+//         card.classList.add('hidden');
+//     });
+// }
+
 // initialize game function
 const init = () => {
+    // resetGame();
     matchedCards = 0;
     triesLeft = 9;
     firstCard = null;
@@ -124,11 +141,13 @@ const init = () => {
     matchedCardsEl.textContent = matchedCards;
     choicesLeftEl.textContent = triesLeft;
 
-    cardsEl.forEach(card => {
-        card.classList.add('hidden');
-    });
+    const shuffledCards = shuffleCards([...cardValues]);
 
-    render();
+     cardsEl.forEach(card, i => {
+        card.dataset.value = shuffledCards[i];
+        card.classList.add('hidden');
+        card.innerHTML = '';
+    });
 }
 
 /*----------- Event Listeners ----------*/
