@@ -51,7 +51,9 @@ h1, h2, h3 {
 }
 
 .card {
-    background-color: rgb(132, 229, 197);
+    /* background-color: rgb(132, 229, 197); */
+    background: #2A7B9B;
+    background: linear-gradient(25deg, rgba(42, 123, 155, 1) 0%, rgba(118, 234, 118, 1) 50%, rgba(237, 221, 83, 1) 100%);
     width: 200px;
     margin-bottom: 20px;
     height: 200px;
@@ -72,10 +74,14 @@ h1, h2, h3 {
   color: transparent;
 }
 
+.hidden-btn {
+  display: none;
+}
+
 .reset-btn {
   font-family: "Momo Trust Display", sans-serif;
   transition: transform 0.3s ease-in-out;
-  margin-bottom: 20px;
+  margin: 20px;
   font-size: 1.7rem;
   padding: 1em;
   border-radius: 40px;

@@ -24,15 +24,18 @@ let gameStatus; // win or lose
 /*----- Cached Element References  -----*/
 
 const cardsEl = document.querySelectorAll('.card');
-const resetBtnEl = document.querySelector('.reset-btn');
 const choicesLeftEl = document.querySelector('#tries-num');
 const matchedCardsEl = document.querySelector('#pairs-num');
+const gameRulesEL = document.querySelector('.game-rules');
+const hiddenBtnEl = document.querySelector('.hidden-btn');
+const resetBtnEl = document.querySelector('.reset-btn');
 
 /*-------------- Functions -------------*/
 // render function
 const render = () => {
 
 }
+
 // card flip function
 const handleCardClick = (card) => {
     // check if board locked or double clicking same card
@@ -85,9 +88,21 @@ const gameStatusCounter = (isMatch) => {
     if (isMatch) {
         matchedCards++;
         matchedCardsEl.textContent = matchedCards;
+        triesLeft--;
+        choicesLeftEl.textContent = triesLeft;
+
+        if(matchedCards === 6) {
+            gameRulesEL.textContent = 'You found all 6 matches!';
+            hiddenBtnEl.style.display = 'block';   
+        }
     } else {
         triesLeft--;
         choicesLeftEl.textContent = triesLeft;
+
+        if(triesLeft === 0) {
+            gameRulesEL.textContent = 'You ran out of tries, play again?';
+            hiddenBtnEl.style.display = 'block';
+        }
    }
 }
 
@@ -98,6 +113,9 @@ const init = () => {
     firstCard = null;
     secondCard = null;
     boardLocked = false;
+
+    matchedCardsEl.textContent = matchedCards;
+    choicesLeftEl.textContent = triesLeft;
 
     cardsEl.forEach(card => {
         card.classList.add('hidden');

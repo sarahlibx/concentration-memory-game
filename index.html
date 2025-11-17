@@ -18,7 +18,11 @@
     <h2 class="game-instructions">
       Click on each square to find all 6 matches.
     </h2>
-    <h3 class="game-tries">You have 9 tries to find every match!</h3>
+    <h3 class="game-rules">You have 9 tries to find every match!</h3>
+    <section class="game-reset">
+      <!-- hide reset button if I can without impacting the cards hidden status -->
+      <button class="reset-btn hidden-btn">Play Again!</button>
+    </section>
     <section class="game-state">
       <h3 class="tries-left">Tries left: <span id="tries-num">9</span></h3>
       <h3 class="pairs-found">Pairs found: <span id="pairs-num">0</span></h3>
@@ -36,10 +40,6 @@
       <div class="card hidden" id="10">&#129381;</div>
       <div class="card hidden" id="11">&#127827;</div>
       <div class="card hidden" id="12">&#127817;</div>
-    </section>
-    <section class="game-reset">
-      <!-- hide reset button if I can without impacting the cards hidden status -->
-      <button class="reset-btn">Play Again!</button>
     </section>
     <footer class="footer">Made with love by Sarah &#128420;</footer>
   </body>
