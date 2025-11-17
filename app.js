@@ -4,6 +4,7 @@ const cardValues = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#12981
 const totalPairs = 6;
 const matchedCardSound = new Audio('../assets/matchwin.wav');
 const wonGameSound = new Audio('../assets/gamewin.ogg');
+const lostGameSound = new Audio('../assets/gameloss.wav');
 
 /*---------- Variables (state) ---------*/
 let firstCard; // first card flip
@@ -33,6 +34,10 @@ const resetBtnEl = document.querySelector('.reset-btn');
 
 // card flip function
 const handleCardClick = (card) => {
+    // prevent tries from going negative
+    if (triesLeft <=0) {
+        resetChoices(); 
+    }
     // check if board locked or double clicking same card
     if (boardLocked || card === firstCard || !card.classList.contains('hidden')) {
         return;
@@ -99,38 +104,29 @@ const gameStatusCounter = (isMatch) => {
         if(triesLeft === 0) {
             gameRulesEL.textContent = 'You ran out of tries, play again?';
             hiddenBtnEl.style.display = 'block';
+            boardLocked = true;
+            lostGameSound.play();
         }
    }
 }
 
+// reset UI after clicking play again
+const resetGame = () => {
+    gameRulesEL.textContent = 'You have 9 tries to find every match!';
+    hiddenBtnEl.style.display = 'none';
+}
+
 // shuffle cards
 const shuffleCards = () => {
-    for (let i = cardValues.length -1; 1 >0; i--) {
+    for (let i = cardValues.length -1; i > 0; i--) {
         const x = Math.floor(Math.random() * (i + 1));
         [cardValues[i], cardValues[x]] = [cardValues[x], cardValues[i]];
     }
     return cardValues;
 }
 
-// reset game
-// const resetGame = () => {
-//     matchedCards = 0;
-//     triesLeft = 9;
-//     firstCard = null;
-//     secondCard = null;
-//     boardLocked = false;
-
-//     matchedCardsEl.textContent = matchedCards;
-//     choicesLeftEl.textContent = triesLeft;
-
-//     cardsEl.forEach(card => {
-//         card.classList.add('hidden');
-//     });
-// }
-
 // initialize game function
 const init = () => {
-    // resetGame();
     matchedCards = 0;
     triesLeft = 9;
     firstCard = null;
@@ -140,12 +136,13 @@ const init = () => {
     matchedCardsEl.textContent = matchedCards;
     choicesLeftEl.textContent = triesLeft;
 
+    resetGame();
+
     const shuffledCards = shuffleCards([...cardValues]);
 
-     cardsEl.forEach(card, i => {
+     cardsEl.forEach((card, i) => {
         card.dataset.value = shuffledCards[i];
         card.classList.add('hidden');
-        card.innerHTML = '';
     });
 }
 
