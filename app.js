@@ -7,6 +7,8 @@
 
 const cardValues = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#129817;', '&#129381;', '&#127825;', '&#127819;', '&#129373;', '&#129381;', '&#127827;', '&#127817;'];
 const totalPairs = 6;
+const matchedCardSound = new Audio('../assets/matchwin.wav');
+const wonGameSound = new Audio('../assets/gamewin.ogg');
 
 /*---------- Variables (state) ---------*/
 let firstCard; // first card flip
@@ -29,6 +31,9 @@ const matchedCardsEl = document.querySelector('#pairs-num');
 const gameRulesEL = document.querySelector('.game-rules');
 const hiddenBtnEl = document.querySelector('.hidden-btn');
 const resetBtnEl = document.querySelector('.reset-btn');
+// add match & won sounds cached elements here
+// const matchedCardEl = document.querySelector('');
+// const wonGameEl = document.querySelector('');
 
 /*-------------- Functions -------------*/
 // render function
@@ -88,12 +93,14 @@ const gameStatusCounter = (isMatch) => {
     if (isMatch) {
         matchedCards++;
         matchedCardsEl.textContent = matchedCards;
+        matchedCardSound.play();
         triesLeft--;
         choicesLeftEl.textContent = triesLeft;
 
         if(matchedCards === 6) {
             gameRulesEL.textContent = 'You found all 6 matches!';
             hiddenBtnEl.style.display = 'block';   
+            wonGameSound.play();
         }
     } else {
         triesLeft--;
@@ -131,7 +138,7 @@ cardsEl.forEach(card => {
   card.addEventListener('click', () => handleCardClick(card));
 });
 
-// Event listener for reset button
+// Event listener for reset game button
 resetBtnEl.addEventListener('click', init);
 
 init();
