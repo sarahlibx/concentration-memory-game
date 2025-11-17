@@ -104,7 +104,6 @@ const gameStatusCounter = (isMatch) => {
 }
 
 // shuffle cards
-
 const shuffleCards = () => {
     for (let i = cardValues.length -1; 1 >0; i--) {
         const x = Math.floor(Math.random() * (i + 1));
