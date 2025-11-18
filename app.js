@@ -2,9 +2,9 @@
 
 const CARDVALUES = ['🍑', '🍉', '🍋', '🥝', '🍓', '🫐', '🍋', '🍉', '🥝', '🫐', '🍑', '🍓'];
 const TOTALPAIRS = 6;
-const MATCHEDCARDSOUND = new Audio('assets/matchwin.wav');
-const WONGAMESOUND = new Audio('assets/gamewin.ogg');
-const LOSTGAMESOUND = new Audio('assets/gameloss.wav');
+const MATCHEDCARDSOUND = new Audio('assets/audio/matchwin.wav');
+const WONGAMESOUND = new Audio('assets/audio/gamewin.ogg');
+const LOSTGAMESOUND = new Audio('assets/audio/gameloss.wav');
 
 /*---------- Variables (state) ---------*/
 let firstCard; // first card flip
@@ -22,6 +22,11 @@ const matchedCardsEl = document.querySelector('#pairs-num');
 const gameRulesEL = document.querySelector('.game-rules');
 const hiddenBtnEl = document.querySelector('.hidden-btn');
 const resetBtnEl = document.querySelector('.reset-btn');
+
+/* ----- Modal Refs ----- */
+const modal = document.getElementById("helpModal");
+const btn = document.getElementById("helpBtn");
+const span = document.querySelector(".close");
 
 /*-------------- Functions -------------*/
 // render function -- working on refactoring 
@@ -172,5 +177,20 @@ cardsEl.forEach(card => {
 
 // Event listener for reset game button
 resetBtnEl.addEventListener('click', init);
+
+// event listener for modal open
+btn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+span.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if(e.target == modal) {
+    modal.style.display = 'none';
+  }
+});
 
 init();
