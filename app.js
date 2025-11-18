@@ -13,13 +13,9 @@ let boardLocked = false;
 let matchedCards = 0;
 let triesLeft = 9;
 
-// not sure if I need these yet due to my gameStatusCounter();
-// let unflippedCards = [];
-// let flippedCards = [];
-// let gameStatus; // win or lose
-
 /*----- Cached Element References  -----*/
 
+const selectionEl = document.querySelectorAll('.hidden');
 const cardsEl = document.querySelectorAll('.card');
 const choicesLeftEl = document.querySelector('#tries-num');
 const matchedCardsEl = document.querySelector('#pairs-num');
@@ -144,13 +140,13 @@ const init = () => {
     matchedCardsEl.textContent = matchedCards;
     choicesLeftEl.textContent = triesLeft;
 
-   cardsEl.forEach(card => {
+   selectionEl.forEach(card => {
     card.classList.add('hidden');
 });
 
     const shuffled = shuffledCards([...CARDVALUES]);
 
-    cardsEl.forEach((card, i) => {
+    selectionEl.forEach((card, i) => {
         card.innerHTML = shuffled[i];
     });
 
@@ -161,7 +157,10 @@ const init = () => {
 
 // Event listener for card clicks/flips
 cardsEl.forEach(card => {
-  card.addEventListener('click', () => handleCardClick(card));
+  card.addEventListener('click', () => {
+    const innerCard = card.querySelector('.hidden');
+    handleCardClick(innerCard);
+  });
 });
 
 // Event listener for reset game button
