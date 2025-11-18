@@ -2,9 +2,9 @@
 
 const CARDVALUES = ['🍑', '🍉', '🍋', '🥝', '🍓', '🫐', '🍋', '🍉', '🥝', '🫐', '🍑', '🍓'];
 const TOTALPAIRS = 6;
-const MATCHEDCARDSOUND = new Audio('../assets/matchwin.wav');
-const WONGAMESOUND = new Audio('../assets/gamewin.ogg');
-const LOSTGAMESOUND = new Audio('../assets/gameloss.wav');
+const MATCHEDCARDSOUND = new Audio('assets/matchwin.wav');
+const WONGAMESOUND = new Audio('assets/gamewin.ogg');
+const LOSTGAMESOUND = new Audio('assets/gameloss.wav');
 
 /*---------- Variables (state) ---------*/
 let firstCard; // first card flip
