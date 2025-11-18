@@ -1,11 +1,9 @@
-User Stories:
-// - See a landing page to know I’m in the right place
-// - Be given clear instructions on how to play — 10 cards, 5 matches, 7 attempts
-// - See clearly defined tries/pairs to let me know when I run out of attempts
-// - See clearly labeled cards to click on to select my game move
-// - See visual feedback after my selection (re: cards match & stay flipped vs no match and card flip back over)
-// - See a game result message (win vs out of attempts)
-// - See a reset/replay game button
+- [ ] Screenshot/Logo: A screenshot of your app or a logo.
+- [ ] Your game’s name: Include a description of your game and what it does. Background info about the game and why you chose it is a nice touch.
+- [ ] Getting started: Include a link to your deployed game and any instructions you deem important. This should also contain a link to your planning materials.
+- [ ] Attributions: This section should include links to any external resources (such as libraries or assets) you used to develop your application that require attribution. You can exclude this section if it does not apply to your application.
+- [ ] Technologies used: List of the technologies used, for example: JavaScript, HTML, CSS, etc.
+- [ ] Next steps: Planned future enhancements (stretch goals).
 
 Pseudocode:
 // - Define constants & variables — in ALL_CAPS

@@ -1,10 +1,10 @@
 /*-------------- Constants -------------*/
 
 const CARDVALUES = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#127817;', '&#129381;', '&#127825;', '&#127819;', '&#129373;', '&#129381;', '&#127827;', '&#127817;'];
-const totalPairs = 6;
-const matchedCardSound = new Audio('../assets/matchwin.wav');
-const wonGameSound = new Audio('../assets/gamewin.ogg');
-const lostGameSound = new Audio('../assets/gameloss.wav');
+const TOTALPAIRS = 6;
+const MATCHEDCARDSOUND = new Audio('../assets/matchwin.wav');
+const WONGAMESOUND = new Audio('../assets/gamewin.ogg');
+const LOSTGAMESOUND = new Audio('../assets/gameloss.wav');
 
 /*---------- Variables (state) ---------*/
 let firstCard; // first card flip
@@ -88,14 +88,14 @@ const gameStatusCounter = (isMatch) => {
     if (isMatch) {
         matchedCards++;
         matchedCardsEl.textContent = matchedCards;
-        matchedCardSound.play();
+        MATCHEDCARDSOUND.play();
         triesLeft--;
         choicesLeftEl.textContent = triesLeft;
 
         if(matchedCards === 6) {
             gameRulesEL.textContent = 'You found all 6 matches!';
             hiddenBtnEl.style.display = 'block';   
-            wonGameSound.play();
+            WONGAMESOUND.play();
         }
     } else {
         triesLeft--;
@@ -105,7 +105,7 @@ const gameStatusCounter = (isMatch) => {
             gameRulesEL.textContent = 'You ran out of tries, play again?';
             hiddenBtnEl.style.display = 'block';
             boardLocked = true;
-            lostGameSound.play();
+            LOSTGAMESOUND.play();
         }
    }
 }
