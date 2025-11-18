@@ -70,7 +70,7 @@ h1, h2, h3 {
   transform: scale(1.10);
 }
 
-.hidden {
+.selection {
   display: none;
 }
 

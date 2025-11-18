@@ -15,7 +15,7 @@ let triesLeft = 9;
 
 /*----- Cached Element References  -----*/
 
-const selectionEl = document.querySelectorAll('.hidden');
+const selectionEl = document.querySelectorAll('.selection');
 const cardsEl = document.querySelectorAll('.card');
 const choicesLeftEl = document.querySelector('#tries-num');
 const matchedCardsEl = document.querySelector('#pairs-num');
@@ -35,11 +35,11 @@ const handleCardClick = (card) => {
         resetChoices(); 
     }
     // check if board locked or double clicking same card
-    if (boardLocked || card === firstCard || !card.classList.contains('hidden')) {
+    if (boardLocked || card === firstCard || !card.classList.contains('selection')) {
         return;
     }
 
-    card.classList.remove('hidden');
+    card.classList.remove('selection');
 
     if(!firstCard) {
         firstCard = card;
@@ -63,8 +63,8 @@ const checkMatch = () => {
         gameStatusCounter(false);
         boardLocked = true;
         setTimeout(() => {
-            firstCard.classList.add('hidden');
-            secondCard.classList.add('hidden');
+            firstCard.classList.add('selection');
+            secondCard.classList.add('selection');
             resetChoices();
         }, 1000);
     }
@@ -141,7 +141,7 @@ const init = () => {
     choicesLeftEl.textContent = triesLeft;
 
    selectionEl.forEach(card => {
-    card.classList.add('hidden');
+    card.classList.add('selection');
 });
 
     const shuffled = shuffledCards([...CARDVALUES]);
@@ -158,7 +158,7 @@ const init = () => {
 // Event listener for card clicks/flips
 cardsEl.forEach(card => {
   card.addEventListener('click', () => {
-    const innerCard = card.querySelector('.hidden');
+    const innerCard = card.querySelector('.selection');
     handleCardClick(innerCard);
   });
 });
