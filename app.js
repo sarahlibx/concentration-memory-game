@@ -24,9 +24,24 @@ const hiddenBtnEl = document.querySelector('.hidden-btn');
 const resetBtnEl = document.querySelector('.reset-btn');
 
 /*-------------- Functions -------------*/
-// render function -- don't need it?
-// const render = () => {
-// }
+// render function -- working on refactoring 
+const render = () => {
+    choicesLeftEl.textContent = triesLeft;
+    matchedCardsEl.textContent = matchedCards;
+
+    if (triesLeft === 0) {
+        gameRulesEL.textContent = 'You ran out of tries, play again?';
+        hiddenBtnEl.style.display = 'block';
+    } 
+    else if (matchedCards === TOTALPAIRS) {
+        gameRulesEL.textContent = 'You found all 6 matches!';
+        hiddenBtnEl.style.display = 'block';
+    } 
+    else {
+        gameRulesEL.textContent = 'You have 9 tries to find every match!';
+        hiddenBtnEl.style.display = 'none';
+    }
+}
 
 // card flip function
 const handleCardClick = (card) => {
@@ -83,34 +98,29 @@ const gameStatusCounter = (isMatch) => {
 
     if (isMatch) {
         matchedCards++;
-        matchedCardsEl.textContent = matchedCards;
-        MATCHEDCARDSOUND.play();
         triesLeft--;
-        choicesLeftEl.textContent = triesLeft;
+        MATCHEDCARDSOUND.play();    
 
-        if(matchedCards === 6) {
-            gameRulesEL.textContent = 'You found all 6 matches!';
-            hiddenBtnEl.style.display = 'block';   
+        if(matchedCards === TOTALPAIRS) {  
             WONGAMESOUND.play();
         }
+
     } else {
         triesLeft--;
-        choicesLeftEl.textContent = triesLeft;
 
         if(triesLeft === 0) {
-            gameRulesEL.textContent = 'You ran out of tries, play again?';
-            hiddenBtnEl.style.display = 'block';
-            boardLocked = true;
             LOSTGAMESOUND.play();
+            boardLocked = true;
         }
    }
+   render();
 }
 
-// reset UI after clicking play again
-const resetGame = () => {
-    gameRulesEL.textContent = 'You have 9 tries to find every match!';
-    hiddenBtnEl.style.display = 'none';
-}
+// reset UI after clicking play again -- refactored into render()
+// const resetGame = () => {
+//     gameRulesEL.textContent = 'You have 9 tries to find every match!';
+//     hiddenBtnEl.style.display = 'none';
+// }
 
 // shuffle cards on reset
 const shuffledCards = (cardArray) => {
@@ -137,9 +147,6 @@ const init = () => {
     secondCard = null;
     boardLocked = false;
 
-    matchedCardsEl.textContent = matchedCards;
-    choicesLeftEl.textContent = triesLeft;
-
    selectionEl.forEach(card => {
     card.classList.add('selection');
 });
@@ -150,7 +157,7 @@ const init = () => {
         card.innerHTML = shuffled[i];
     });
 
-    resetGame();
+    render();
 }
 
 /*----------- Event Listeners ----------*/
