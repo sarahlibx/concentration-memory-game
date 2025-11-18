@@ -81,6 +81,7 @@ const checkMatch = () => {
         resetChoices();
     } else {
         gameStatusCounter(false);
+        shakeCards();
         boardLocked = true;
         setTimeout(() => {
             firstCard.classList.add('selection');
@@ -88,6 +89,17 @@ const checkMatch = () => {
             resetChoices();
         }, 1000);
     }
+}
+
+// shake cards function for no match
+const shakeCards = () => {
+    firstCard.classList.add('shake');
+    secondCard.classList.add('shake');
+
+    setTimeout(() => {
+        firstCard.classList.remove('shake');
+        secondCard.classList.remove('shake');
+    }, 400);
 }
 
 // reset cards between mismatched choices

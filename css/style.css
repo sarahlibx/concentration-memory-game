@@ -18,10 +18,13 @@ header {
   margin-top: 20px;
   font-family: "Momo Trust Display", sans-serif;
   padding: 0.5em;
+  margin-right: 20px;
   border-radius: 40px;
   border: none;
   background-color: rgb(118, 234, 118);
   transition: transform 0.3s ease-in-out;
+  position: fixed;
+  right: 0;
 }
 
 #helpBtn:hover {
@@ -132,6 +135,20 @@ h1, h2, h3 {
 .card:hover {
   cursor: grab;
   transform: scale(1.10);
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
 }
 
 .selection {
