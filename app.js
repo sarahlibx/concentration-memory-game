@@ -1,6 +1,6 @@
 /*-------------- Constants -------------*/
 
-const cardValues = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#129817;', '&#129381;', '&#127825;', '&#127819;', '&#129373;', '&#129381;', '&#127827;', '&#127817;'];
+const CARDVALUES = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#129817;', '&#129381;', '&#127825;', '&#127819;', '&#129373;', '&#129381;', '&#127827;', '&#127817;'];
 const totalPairs = 6;
 const matchedCardSound = new Audio('../assets/matchwin.wav');
 const wonGameSound = new Audio('../assets/gamewin.ogg');
@@ -116,15 +116,6 @@ const resetGame = () => {
     hiddenBtnEl.style.display = 'none';
 }
 
-// shuffle cards
-const shuffleCards = () => {
-    for (let i = cardValues.length -1; i > 0; i--) {
-        const x = Math.floor(Math.random() * (i + 1));
-        [cardValues[i], cardValues[x]] = [cardValues[x], cardValues[i]];
-    }
-    return cardValues;
-}
-
 // initialize game function
 const init = () => {
     matchedCards = 0;
@@ -136,14 +127,12 @@ const init = () => {
     matchedCardsEl.textContent = matchedCards;
     choicesLeftEl.textContent = triesLeft;
 
+   cardsEl.forEach(card => {
+    card.classList.add('hidden');
+});
+
+
     resetGame();
-
-    const shuffledCards = shuffleCards([...cardValues]);
-
-     cardsEl.forEach((card, i) => {
-        card.dataset.value = shuffledCards[i];
-        card.classList.add('hidden');
-    });
 }
 
 /*----------- Event Listeners ----------*/
