@@ -9,7 +9,7 @@
 
 Concentration is a game in which a set of cards are all laid face down on a surface and two cards are flipped face up over each turn. The goal is to find all matches (6 total) before you run out of attempts (9 tries)!
 
-![visual representation of Concentration](concentration-memory-game/assets/images/readmeimage.pngassets/images/readmeimage.png)
+<img width="700" height="auto" alt="Memory Game Demo" src="https://github.com/user-attachments/assets/7825b98f-ad63-443d-bc4c-a9a46aeeedec" />
 
 This version of Concentration offers 6 different matches of fruit emojis, offering you 9 chances to find all 6 matches.
 
