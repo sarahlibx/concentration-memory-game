@@ -5,33 +5,40 @@
 - [ ] Technologies used: List of the technologies used, for example: JavaScript, HTML, CSS, etc.
 - [ ] Next steps: Planned future enhancements (stretch goals).
 
-Pseudocode:
+# Concentration Memory Game
 
-// - Invoke init function used to initialize all state variables/game
+Concentration is a game in which a set of cards are all laid face down on a surface and two cards are flipped face up over each turn. The goal is to find all matches (6 total) before you run out of attempts (9 tries)!
 
-// - Invoke primary render function that transfers all defined state variables to the DOM
-// - Render game message to the DOM
+![visual representation of Concentration](concentration-memory-game/assets/images/readmeimage.pngassets/images/readmeimage.png)
 
-// - Wait for the user to click on a card
-// - Update all state variables with the correct values depending on the user’s choice — if/else re: match vs not a match statement
-// - Invoke the primary render function
-// - Render game message to the DOM
+This version of Concentration offers 6 different matches of fruit emojis, offering you 9 chances to find all 6 matches.
 
-// - Function for card flips
-// - Compare card 1 to card 2, keep them flipped if a match
-// - If not a match, flip cards back over and prompt for a new selection
+For each match you find, the DOM will continue to display them on the screen, along with incrementing your matches found in a counter. You will also hear an audible sound when you find a match.
 
-// - Function for remaining flips/attempts counter
-// - 8 attempts given
-// - Decrement the counter by 1 for every 2 card flips
-// - Set message for “out of attempts/try again”
+For each mismatched attempt, the screen will notify you of a mismatch with a CSS animation followed by the card flipping over and the counter decrementing the number of tries you have remaining.
 
-// - Wait for user to click play again button
-// - Invoke init to reset all state variables to their initial values
-// - Reset the cards
-// - Reset the tries/pairs to 0
+If you find all 6 matches before the game ends, the screen will notify you of this along with an audible game is won sound.
 
-// - Stretch goals
-// - Shuffle cards on reset button click
-// - Display a modal when the game ends with the result & play again button
-// - Media queries for responsive screen sizes
+If you do not find all 6 matches before the game ends, the screen will notify you of this along with an audible game is lost sound.
+
+The play again button will appear at the end of each game.
+
+There is also a help button in the top right of the screen that will display a modal with additional instructions and a visual of the game board.
+
+## Why Concentration?
+
+I chose this game because I wanted to practice displaying a variety of elements and manipulations to the DOM through events, functions and CSS styling.
+
+### Resources
+
+In developing this game, I leaned heavily on a few resources:
+
+- [MDN Docs](https://developer.mozilla.org/en-US/)
+- [W3 Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/questions)
+
+### Technologies
+
+- JavaScript
+- CSS
+- HTML

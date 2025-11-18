@@ -29,7 +29,7 @@ const btn = document.getElementById("helpBtn");
 const span = document.querySelector(".close");
 
 /*-------------- Functions -------------*/
-// render function -- working on refactoring 
+// render function for DOM changes
 const render = () => {
     choicesLeftEl.textContent = triesLeft;
     matchedCardsEl.textContent = matchedCards;
