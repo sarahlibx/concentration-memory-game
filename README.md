@@ -6,23 +6,6 @@
 - [ ] Next steps: Planned future enhancements (stretch goals).
 
 Pseudocode:
-// - Define constants & variables — in ALL_CAPS
-// - Const: cardValues — set values — ensure pairs (10 cards, 5 pairs)
-// - Const: maxAttempts — 8 attempts to get all 5 pairs
-// - Let: unflippedCards — empty array to store current unflipped cards
-// - Let: flippedCards — empty array to store current flipped cards
-
-// - Define state variables but don’t assign values to them
-// - Variable for user’s choice
-// - Variable for state of game board — flipped vs unflipped cards
-// - Variable for game message/status
-
-// - Select & save cached elements for things that need to be accessed more than once
-// - Results display element
-
-// - Add event listeners
-// - Event listener for card clicks/flips
-// - Event listener for reset button
 
 // - Invoke init function used to initialize all state variables/game
 

@@ -1,6 +1,6 @@
 /*-------------- Constants -------------*/
 
-const CARDVALUES = ['&#127827;', '&#127819;', '&#127825;', '&#129373;', '&#127817;', '&#129381;', '&#127825;', '&#127819;', '&#129373;', '&#129381;', '&#127827;', '&#127817;'];
+const CARDVALUES = ['🍑', '🍉', '🍋', '🥝', '🍓', '🫐', '🍋', '🍉', '🥝', '🫐', '🍑', '🍓'];
 const TOTALPAIRS = 6;
 const MATCHEDCARDSOUND = new Audio('../assets/matchwin.wav');
 const WONGAMESOUND = new Audio('../assets/gamewin.ogg');
