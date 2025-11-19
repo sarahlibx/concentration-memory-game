@@ -21,7 +21,7 @@ header {
   margin-right: 20px;
   border-radius: 40px;
   border: none;
-  background-color: rgb(118, 234, 118);
+  background-color: rgb(91, 144, 251);
   transition: transform 0.3s ease-in-out;
   position: fixed;
   right: 0;
@@ -47,8 +47,8 @@ header {
 }
 
 .modal-content {
-  background-color: #2A7B9B;
-  color: white;
+  background-color: #f7dd4c;
+  color: black;
   margin: auto;
   padding: 20px 50px;
   border: 1px solid #888;
@@ -89,12 +89,12 @@ body {
   align-items: center;
 }
 
-h1, h2, h3 {
-    margin: 10px 0;
-}
-
 .game-title {
   margin-top: 20px;
+}
+
+h2, h3 {
+    margin: 10px 0;
 }
 
 .game-state {
@@ -120,7 +120,8 @@ h1, h2, h3 {
 .card {
     /* background-color: rgb(132, 229, 197); */
     background: #2A7B9B;
-    background: linear-gradient(25deg, rgba(42, 123, 155, 1) 0%, rgba(118, 234, 118, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    background-image: url('/assets/images/90s_Colorful_Squiggle.jpg');
+    /* background: linear-gradient(25deg, rgba(42, 123, 155, 1) 0%, rgba(118, 234, 118, 1) 50%, rgba(237, 221, 83, 1) 100%); */
     width: 200px;
     margin-bottom: 20px;
     height: 200px;
@@ -128,7 +129,8 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5em;
+    font-size: 6em;
+    border-radius: 15px;;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -166,7 +168,7 @@ h1, h2, h3 {
   padding: 1em;
   border-radius: 40px;
   border: none;
-  background-color: rgb(118, 234, 118);
+  background-color: rgb(91, 144, 251);
 }
 
 .reset-btn:hover {
