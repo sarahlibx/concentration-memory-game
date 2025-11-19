@@ -54,14 +54,15 @@ header {
   border: 1px solid #888;
   width: 80%;
   text-align: center;
+  border-radius: 40px;
 }
 
 img {
-    width: 250px;
-    height: auto; 
-    margin: auto;
-    padding: 10px;
-    }
+  width: 250px;
+  height: auto; 
+  margin: auto;
+  padding: 10px;
+}
 
 .close {
   color: #aaaaaa;
@@ -94,44 +95,54 @@ body {
 }
 
 h2, h3 {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
-.game-state {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 60px;
-    margin-top: 5px;
+.game-state, .game-history {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  margin-top: 5px;
+}
+
+#current-game-counter, #past-game-counter {
+  border: #000 solid 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 60px;
+  padding: 10px;
+  border-radius: 40px;
 }
 
 .game-board {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    /* grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr); */
-    margin: 40px;
-    gap: 20px;
-    user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr); */
+  margin: 40px;
+  gap: 20px;
+  user-select: none;
+  max-width: 1000px;
 }
 
 .card {
-    /* background-color: rgb(132, 229, 197); */
-    background: #2A7B9B;
-    background-image: url('/assets/images/90s_Colorful_Squiggle.jpg');
-    /* background: linear-gradient(25deg, rgba(42, 123, 155, 1) 0%, rgba(118, 234, 118, 1) 50%, rgba(237, 221, 83, 1) 100%); */
-    width: 200px;
-    margin-bottom: 20px;
-    height: 200px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 6em;
-    border-radius: 15px;;
-    transition: transform 0.3s ease-in-out;
+  /* background-color: rgb(132, 229, 197); */
+  background: rgb(91, 144, 251);
+  background-image: url('/assets/images/90s_Colorful_Squiggle.jpg');
+  width: 200px;
+  margin-bottom: 20px;
+  height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6em;
+  border-radius: 15px;;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {

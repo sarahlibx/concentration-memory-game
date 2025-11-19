@@ -46,8 +46,15 @@
       <button class="reset-btn hidden-btn">Play Again!</button>
     </section>
     <section class="game-state">
-      <h3 class="tries-left">Tries left: <span id="tries-num">9</span></h3>
-      <h3 class="pairs-found">Pairs found: <span id="pairs-num">0</span></h3>
+      <div id="current-game-counter">
+        <h3 class="tries-left">Tries left: <span id="tries-num">9</span></h3>
+        <h3 class="pairs-found">Pairs found: <span id="pairs-num">0</span></h3>
+      </div>
+      <!-- separate views of current and past game -->
+      <div id="past-game-counter">
+        <h3 class="wins-counter">Wins: <span id="wins-count">0</span></h3>
+        <h3 class="losses-counter">Losses: <span id="losses-count">0</span></h3>
+      </div>
     </section>
     <section class="game-board">
       <div class="card">

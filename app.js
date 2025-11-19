@@ -12,6 +12,8 @@ let secondCard; // second card flip -- incremement or decremement tries counter
 let boardLocked = false;
 let matchedCards = 0;
 let triesLeft = 9;
+let wins = Number(localStorage.getItem('gameWins')) || 0;
+let losses = Number(localStorage.getItem('gameLosses')) || 0;
 
 /*----- Cached Element References  -----*/
 
@@ -22,6 +24,8 @@ const matchedCardsEl = document.querySelector('#pairs-num');
 const gameRulesEL = document.querySelector('.game-rules');
 const hiddenBtnEl = document.querySelector('.hidden-btn');
 const resetBtnEl = document.querySelector('.reset-btn');
+const winsEl = document.querySelector('#wins-count');
+const lossesEl = document.querySelector('#losses-count');
 
 /* ----- Modal Refs ----- */
 const modal = document.getElementById("helpModal");
@@ -33,6 +37,9 @@ const span = document.querySelector(".close");
 const render = () => {
     choicesLeftEl.textContent = triesLeft;
     matchedCardsEl.textContent = matchedCards;
+
+    winsEl.textContent = wins;
+    lossesEl.textContent = losses;
 
     if (triesLeft === 0) {
         gameRulesEL.textContent = 'You ran out of tries, play again?';
@@ -120,12 +127,16 @@ const gameStatusCounter = (isMatch) => {
         if (triesLeft <= 0) {
             LOSTGAMESOUND.play();
             boardLocked = true;
+            losses++;
+            localStorage.setItem('losses', losses);
         } else {
         MATCHEDCARDSOUND.play();    
         }
 
         if(matchedCards === TOTALPAIRS) {  
             WONGAMESOUND.play();
+            wins++;
+            localStorage.setItem('wins', wins); 
         }
 
     } else {
@@ -134,6 +145,8 @@ const gameStatusCounter = (isMatch) => {
         if(triesLeft === 0) {
             LOSTGAMESOUND.play();
             boardLocked = true;
+            losses++;
+            localStorage.setItem('losses', losses);
         }
    }
    render();
