@@ -130,8 +130,7 @@ h2, h3 {
 }
 
 .card {
-  /* background-color: rgb(132, 229, 197); */
-  background: rgb(91, 144, 251);
+  background-color: rgb(91, 144, 251);
   background-image: url('../assets/images/90s_Colorful_Squiggle.jpg');
   width: 200px;
   margin-bottom: 20px;
