@@ -20,7 +20,7 @@ There is also a help button in the top right of the screen that will display a m
 
 ## Why Concentration?
 
-I chose this game because I wanted to practice displaying a variety of elements and manipulations to the DOM through events, functions and CSS styling.
+I chose this game because I grew up as an only child and remember playing Memory over and over! I implemented my chosen methods because wanted to practice displaying a variety of elements and manipulations to the DOM through events, functions and CSS styling.
 
 ### Resources
 
@@ -29,6 +29,7 @@ In developing this game, I leaned heavily on a few resources:
 - [MDN Docs](https://developer.mozilla.org/en-US/)
 - [W3 Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/questions)
+- Ashley Sands, our instructor for navigating browser quirks!
 
 ### Technologies
 

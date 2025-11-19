@@ -116,7 +116,13 @@ const gameStatusCounter = (isMatch) => {
     if (isMatch) {
         matchedCards++;
         triesLeft--;
+
+        if (triesLeft <= 0) {
+            LOSTGAMESOUND.play();
+            boardLocked = true;
+        } else {
         MATCHEDCARDSOUND.play();    
+        }
 
         if(matchedCards === TOTALPAIRS) {  
             WONGAMESOUND.play();
