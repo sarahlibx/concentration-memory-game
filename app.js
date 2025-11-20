@@ -12,8 +12,8 @@ let secondCard; // second card flip -- incremement or decremement tries counter
 let boardLocked = false;
 let matchedCards = 0;
 let triesLeft = 9;
-let wins = Number(localStorage.getItem('gameWins')) || 0;
-let losses = Number(localStorage.getItem('gameLosses')) || 0;
+let wins = Number(localStorage.getItem('wins')) || 0;
+let losses = Number(localStorage.getItem('losses')) || 0;
 
 /*----- Cached Element References  -----*/
 
