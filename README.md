@@ -43,4 +43,4 @@ In developing this game, I leaned heavily on a few resources:
 - Create flip animation with the cards
 - Add modal at end of game to display outcome
 - Add timer for each round of play to include in game stats modal
-- Show all matching cards at the end of each round to display all matches
+- Show all matching cards at the end of each round
