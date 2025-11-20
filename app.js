@@ -7,10 +7,10 @@ const WONGAMESOUND = new Audio('assets/audio/gamewin.ogg');
 const LOSTGAMESOUND = new Audio('assets/audio/gameloss.wav');
 
 /*---------- Variables (state) ---------*/
-let firstCard; // first card flip
-let secondCard; // second card flip -- incremement or decremement tries counter
-let boardLocked = false;
-let matchedCards = 0;
+let firstCard; 
+let secondCard;  
+let boardLocked = false; 
+let matchedCards = 0; 
 let triesLeft = 9;
 let wins = Number(sessionStorage.getItem('wins')) || 0;
 let losses = Number(sessionStorage.getItem('losses')) || 0;
@@ -32,7 +32,7 @@ const modal = document.getElementById("helpModal");
 const btn = document.getElementById("helpBtn");
 const span = document.querySelector(".close");
 
-/* ----- Game Over Modal Refs --- */
+/* ----- Game Over Modal Refs ----- */
 const gameOverModal = document.querySelector('#game-over-modal');
 const gameOverModalContent = document.querySelector('.game-over-modal-content');
 const memoryModalMessage = document.querySelector('.memory-message');
@@ -63,7 +63,7 @@ const render = () => {
 
 // card flip function
 const handleCardClick = (card) => {
-    // prevent tries from going negative
+    // prevent tries left from going negative
     if (triesLeft <=0) {
         resetChoices(); 
     }
@@ -187,7 +187,7 @@ const shuffledCards = (cardArray) => {
 const showGameOverModal = () => {
 
     gameOverModal.style.display = 'block';
-    memoryModalMessage.textContent = "You didn't find all the matches but you've still got a pretty good memory!";
+    memoryModalMessage.textContent = "You didn't find all the matches, but you've still got a pretty good memory!";
 
     if (matchedCards === TOTALPAIRS) {
         gameOverModal.style.display = 'block';
@@ -208,7 +208,7 @@ const init = () => {
 });
 
     const shuffled = shuffledCards([...CARDVALUES]);
-    // keeping this console.log in to view current shuffled deck for testing
+    // keeping this console.log in to view current shuffled deck for testing & presentation purposes (to show ability to win!)
     console.log("SHUFFLED CARDS:", shuffled); 
 
     selectionEl.forEach((card, i) => {
@@ -255,7 +255,7 @@ closeGameOverModal.addEventListener('click', () => {
 
 // game over modal close on click anywhere on window
 window.addEventListener('click', (e) => {
-  if(e.target == modal) {
+  if(e.target == gameOverModal) {
     gameOverModal.style.display = 'none';
   }
 });

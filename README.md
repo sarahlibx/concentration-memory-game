@@ -16,6 +16,8 @@ If you do not find all 6 matches before the game ends, the screen will notify yo
 
 The play again button will appear at the end of each game.
 
+There is also a modal that will trigger at the end of each game, displaying a message based on if you won or lost.
+
 There is also a help button in the top right of the screen that will display a modal with additional instructions and a visual of the game board.
 
 ## Why Concentration?
@@ -28,6 +30,7 @@ In developing this game, I leaned heavily on a few resources:
 
 - [MDN Docs](https://developer.mozilla.org/en-US/)
 - [W3 Schools](https://www.w3schools.com/)
+- [Geeks for Geeks](https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/)
 - [Stack Overflow](https://stackoverflow.com/questions)
 - [CSS Tricks](https://css-tricks.com)
 - Ashley Sands, our instructor for navigating browser quirks!
@@ -44,4 +47,4 @@ In developing this game, I leaned heavily on a few resources:
 - Create flip animation with the cards
 - Add modal at end of game to display outcome (number of wins vs losses & matches found this round)
 - Add timer for each round of play to include in game stats modal
-- Show all matching cards at the end of each round
+- Show all matching cards at the end of each round OR for a quick second on game load for the user to "memorize" the board
