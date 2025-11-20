@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Concentration Memory Game</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -94,6 +95,21 @@
         <div class="hidden selection" id="12">🍓</div>
       </div>
     </section>
-    <footer class="footer">Made with love by Sarah &#128420;</footer>
+    <footer class="footer">Made with love by Sarah 🖤</footer>
+    <section id="game-over-modal">
+      <div class="game-over-modal-content">
+        <span class="close-game-over-modal">&times;</span>
+        <h2>Game Over!</h2>
+        <!-- <p>Matches found: <span id="pairs-num">0</span></p> -->
+        <p class="memory-message">
+          You didn't find all the matches but you've got a pretty good memory!
+        </p>
+        <br />
+        <img
+          src="assets/images/gameovermodal.gif"
+          alt="Michelle Tanner dialogue from Full House"
+        />
+      </div>
+    </section>
   </body>
 </html>

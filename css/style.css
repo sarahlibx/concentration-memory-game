@@ -25,6 +25,7 @@ header {
   transition: transform 0.3s ease-in-out;
   position: fixed;
   right: 0;
+  text-shadow: none;
 }
 
 #helpBtn:hover {
@@ -121,26 +122,24 @@ h2, h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(4, 1fr); */
   margin: 40px;
-  gap: 20px;
+  gap: 15px;
   user-select: none;
   max-width: 1000px;
 }
 
 .card {
-  background-color: rgb(91, 144, 251);
+  background-color: rgb(1, 1, 2);
   background-image: url('../assets/images/90s_Colorful_Squiggle.jpg');
-  width: 200px;
-  margin-bottom: 20px;
-  height: 200px;
+  width: 190px;
+  margin-bottom: 10px;
+  height: 190px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 6em;
-  border-radius: 15px;;
+  border-radius: 15px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -188,4 +187,39 @@ h2, h3 {
 
 footer {
   margin-bottom: 40px;
+}
+
+#game-over-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.game-over-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align: center;
+}
+
+.close-game-over-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-game-over-modal:hover,
+.close-game-over-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

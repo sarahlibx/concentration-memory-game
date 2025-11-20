@@ -27,10 +27,16 @@ const resetBtnEl = document.querySelector('.reset-btn');
 const winsEl = document.querySelector('#wins-count');
 const lossesEl = document.querySelector('#losses-count');
 
-/* ----- Modal Refs ----- */
+/* ----- Help Modal Refs ----- */
 const modal = document.getElementById("helpModal");
 const btn = document.getElementById("helpBtn");
 const span = document.querySelector(".close");
+
+/* ----- Game Over Modal Refs --- */
+const gameOverModal = document.querySelector('#game-over-modal');
+const gameOverModalContent = document.querySelector('.game-over-modal-content');
+// reuse matchedCardsEl to display pairs found
+const closeGameOverModal = document.querySelector('.close-game-over-modal');
 
 /*-------------- Functions -------------*/
 // render function for DOM changes
@@ -41,12 +47,12 @@ const render = () => {
     winsEl.textContent = wins;
     lossesEl.textContent = losses;
 
-    if (triesLeft === 0) {
-        gameRulesEL.textContent = 'You ran out of tries, play again?';
+    if (matchedCards === TOTALPAIRS) {
+        gameRulesEL.textContent = 'You found all 6 matches!';
         hiddenBtnEl.style.display = 'block';
     } 
-    else if (matchedCards === TOTALPAIRS) {
-        gameRulesEL.textContent = 'You found all 6 matches!';
+    else if (triesLeft === 0) {
+        gameRulesEL.textContent = 'You ran out of tries, play again?';
         hiddenBtnEl.style.display = 'block';
     } 
     else {
@@ -124,20 +130,25 @@ const gameStatusCounter = (isMatch) => {
         matchedCards++;
         triesLeft--;
 
+        if(matchedCards === TOTALPAIRS) {  
+            WONGAMESOUND.play();
+            wins++;
+            localStorage.setItem('wins', wins); 
+            boardLocked = true;
+            render();
+            return;
+        }
+
         if (triesLeft <= 0) {
             LOSTGAMESOUND.play();
             boardLocked = true;
             losses++;
             localStorage.setItem('losses', losses);
-        } else {
-        MATCHEDCARDSOUND.play();    
-        }
+            render();
+            return;
+        } 
 
-        if(matchedCards === TOTALPAIRS) {  
-            WONGAMESOUND.play();
-            wins++;
-            localStorage.setItem('wins', wins); 
-        }
+        MATCHEDCARDSOUND.play();    
 
     } else {
         triesLeft--;
@@ -147,16 +158,13 @@ const gameStatusCounter = (isMatch) => {
             boardLocked = true;
             losses++;
             localStorage.setItem('losses', losses);
+            setTimeout(() => {
+                showGameOverModal();
+            }, 250);
         }
    }
    render();
 }
-
-// reset UI after clicking play again -- refactored into render()
-// const resetGame = () => {
-//     gameRulesEL.textContent = 'You have 9 tries to find every match!';
-//     hiddenBtnEl.style.display = 'none';
-// }
 
 // shuffle cards on reset
 const shuffledCards = (cardArray) => {
@@ -175,6 +183,11 @@ const shuffledCards = (cardArray) => {
   return cardArray;
 }
 
+// display modal on game over
+const showGameOverModal = () => {
+    gameOverModal.style.display = 'block';
+}
+
 // initialize game function
 const init = () => {
     matchedCards = 0;
@@ -189,7 +202,7 @@ const init = () => {
 
     const shuffled = shuffledCards([...CARDVALUES]);
     // keeping this console.log in to view current shuffled deck for testing
-    console.table("SHUFFLED CARDS:", shuffled); 
+    console.log("SHUFFLED CARDS:", shuffled); 
 
     selectionEl.forEach((card, i) => {
         card.innerHTML = shuffled[i];
@@ -211,18 +224,32 @@ cardsEl.forEach(card => {
 // Event listener for reset game button
 resetBtnEl.addEventListener('click', init);
 
-// event listener for modal open
+// event listener for help modal open
 btn.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 
+// help modal close
 span.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
+// modal close on click anywhere on window
 window.addEventListener('click', (e) => {
   if(e.target == modal) {
     modal.style.display = 'none';
+  }
+});
+
+// event listener for game over modal close
+closeGameOverModal.addEventListener('click', () => {
+    gameOverModal.style.display = 'none';
+});
+
+// game over modal close on click anywhere on window
+window.addEventListener('click', (e) => {
+  if(e.target == modal) {
+    gameOverModal.style.display = 'none';
   }
 });
 
