@@ -29,6 +29,7 @@ In developing this game, I leaned heavily on a few resources:
 - [MDN Docs](https://developer.mozilla.org/en-US/)
 - [W3 Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/questions)
+- [CSS Tricks](https://css-tricks.com)
 - Ashley Sands, our instructor for navigating browser quirks!
 
 ### Technologies
