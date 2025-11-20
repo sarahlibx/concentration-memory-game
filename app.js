@@ -186,11 +186,12 @@ const shuffledCards = (cardArray) => {
 // display modal on game over
 const showGameOverModal = () => {
 
+    gameOverModal.style.display = 'block';
+    memoryModalMessage.textContent = "You didn't find all the matches but you've still got a pretty good memory!";
+
     if (matchedCards === TOTALPAIRS) {
         gameOverModal.style.display = 'block';
         memoryModalMessage.textContent = 'You found all the matches, what a good memory!';
-    } else {
-        gameOverModal.style.display = 'block';
     }
 }
 
