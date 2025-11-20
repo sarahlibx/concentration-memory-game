@@ -12,8 +12,8 @@ let secondCard; // second card flip -- incremement or decremement tries counter
 let boardLocked = false;
 let matchedCards = 0;
 let triesLeft = 9;
-let wins = Number(localStorage.getItem('wins')) || 0;
-let losses = Number(localStorage.getItem('losses')) || 0;
+let wins = Number(sessionStorage.getItem('wins')) || 0;
+let losses = Number(sessionStorage.getItem('losses')) || 0;
 
 /*----- Cached Element References  -----*/
 
@@ -49,15 +49,15 @@ const render = () => {
 
     if (matchedCards === TOTALPAIRS) {
         gameRulesEL.textContent = 'You found all 6 matches!';
-        hiddenBtnEl.style.display = 'block';
+        hiddenBtnEl.style.visibility = 'visible';
     } 
     else if (triesLeft === 0) {
         gameRulesEL.textContent = 'You ran out of tries, play again?';
-        hiddenBtnEl.style.display = 'block';
+        hiddenBtnEl.style.visibility = 'visible';
     } 
     else {
         gameRulesEL.textContent = 'You have 9 tries to find every match!';
-        hiddenBtnEl.style.display = 'none';
+        hiddenBtnEl.style.visibility = 'hidden';
     }
 }
 
@@ -133,7 +133,7 @@ const gameStatusCounter = (isMatch) => {
         if(matchedCards === TOTALPAIRS) {  
             WONGAMESOUND.play();
             wins++;
-            localStorage.setItem('wins', wins); 
+            sessionStorage.setItem('wins', wins); 
             boardLocked = true;
             showGameOverModal();
             render();
@@ -144,7 +144,7 @@ const gameStatusCounter = (isMatch) => {
             LOSTGAMESOUND.play();
             boardLocked = true;
             losses++;
-            localStorage.setItem('losses', losses);
+            sessionStorage.setItem('losses', losses);
             showGameOverModal();
             render();
             return;
@@ -159,7 +159,7 @@ const gameStatusCounter = (isMatch) => {
             LOSTGAMESOUND.play();
             boardLocked = true;
             losses++;
-            localStorage.setItem('losses', losses);
+            sessionStorage.setItem('losses', losses);
             showGameOverModal();
         }
    }
