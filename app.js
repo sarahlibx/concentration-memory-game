@@ -188,6 +188,8 @@ const init = () => {
 });
 
     const shuffled = shuffledCards([...CARDVALUES]);
+    // keeping this console.log in to view current shuffled deck for testing
+    console.table("SHUFFLED CARDS:", shuffled); 
 
     selectionEl.forEach((card, i) => {
         card.innerHTML = shuffled[i];
