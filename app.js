@@ -35,7 +35,7 @@ const span = document.querySelector(".close");
 /* ----- Game Over Modal Refs --- */
 const gameOverModal = document.querySelector('#game-over-modal');
 const gameOverModalContent = document.querySelector('.game-over-modal-content');
-// reuse matchedCardsEl to display pairs found
+const memoryModalMessage = document.querySelector('.memory-message');
 const closeGameOverModal = document.querySelector('.close-game-over-modal');
 
 /*-------------- Functions -------------*/
@@ -135,6 +135,7 @@ const gameStatusCounter = (isMatch) => {
             wins++;
             localStorage.setItem('wins', wins); 
             boardLocked = true;
+            showGameOverModal();
             render();
             return;
         }
@@ -184,7 +185,12 @@ const shuffledCards = (cardArray) => {
 
 // display modal on game over
 const showGameOverModal = () => {
-    gameOverModal.style.display = 'block';
+
+    if (matchedCards === TOTALPAIRS) {
+        gameOverModal.style.display = 'block';
+        memoryModalMessage.textContent = 'You found all the matches, what a good memory!';
+    } 
+        gameOverModal.style.display = 'block';
 }
 
 // initialize game function
