@@ -24,6 +24,8 @@ There is also a help button in the top right of the screen that will display a m
 
 I chose this game because I grew up as an only child and remember playing Memory over and over! I implemented my chosen methods because wanted to practice displaying a variety of elements and manipulations to the DOM through events, functions and CSS styling.
 
+## Play the game here: [Concentration Game](https://sarahlibx.github.io/concentration-memory-game/)
+
 ### Resources
 
 In developing this game, I leaned heavily on a few resources:
