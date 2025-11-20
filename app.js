@@ -144,6 +144,7 @@ const gameStatusCounter = (isMatch) => {
             boardLocked = true;
             losses++;
             localStorage.setItem('losses', losses);
+            showGameOverModal();
             render();
             return;
         } 
