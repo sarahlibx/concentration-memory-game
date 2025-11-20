@@ -105,7 +105,7 @@ h2, h3 {
   justify-content: space-evenly;
   align-items: center;
   gap: 30px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 #current-game-counter, #past-game-counter {
