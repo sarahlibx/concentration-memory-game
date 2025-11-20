@@ -189,8 +189,9 @@ const showGameOverModal = () => {
     if (matchedCards === TOTALPAIRS) {
         gameOverModal.style.display = 'block';
         memoryModalMessage.textContent = 'You found all the matches, what a good memory!';
-    } 
+    } else {
         gameOverModal.style.display = 'block';
+    }
 }
 
 // initialize game function
