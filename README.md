@@ -36,6 +36,7 @@ In developing this game, I leaned heavily on a few resources:
 - [Stack Overflow](https://stackoverflow.com/questions)
 - [CSS Tricks](https://css-tricks.com)
 - [Google -- to research other concentration games!](https://www.google.com)
+- [Freesound](https://freesound.org)
 - Ashley Sands, our instructor for navigating browser quirks!
 
 ### Technologies
