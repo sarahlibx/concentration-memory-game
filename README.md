@@ -35,6 +35,7 @@ In developing this game, I leaned heavily on a few resources:
 - [Geeks for Geeks](https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/)
 - [Stack Overflow](https://stackoverflow.com/questions)
 - [CSS Tricks](https://css-tricks.com)
+- [Google -- to research other concentration games!](https://www.google.com)
 - Ashley Sands, our instructor for navigating browser quirks!
 
 ### Technologies
